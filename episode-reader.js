@@ -8,36 +8,69 @@ function getFirstName(name) {
 	return name.split(" ")[0];
 }
 
-function getTimesMentioned(data, name) {
-	return countInstances(data, name);
+class Analyzer {
+	constructor(name, method) {
+		this.name = name;
+		this.method = method;
+	}
 }
 
-function getTimesSpoken(data, name) {
-	return countInstances(data, name + ":");
-}
+var getTimesMentioned = new Analyzer("timesMentioned", function (data, name) {
+	return countInstances(data.toLowerCase(), name.toLowerCase());
+});
 
-var methods = [getTimesMentioned, getTimesSpoken];
+var getTimesSpoken = new Analyzer("timesSpoken", function (data, name) {
+	return countInstances(data.toLowerCase(), name.toLowerCase() + ":");
+});
+
+var isolateSpeakersRegex = /\w*?: .*?(?=(\w*?:)|$)/gmi
+var getSpeakerRegex = /^\w*(?=:)/mi
+
+var getWordsSpoken = new Analyzer("wordsSpoken", function (data, name) {
+	var count = 0;
+	var matches = data.match(isolateSpeakersRegex);
+	for (match in matches) {
+		var transcriptLine = matches[match];
+
+		var speaker = transcriptLine.match(getSpeakerRegex)[0];
+
+		if (speaker == name) {
+			var line = transcriptLine.replace(speaker + ": ", "");
+			var wordsSpoken = line.split(" ").length;
+			count += wordsSpoken;
+		}
+	}
+	return count;
+});
+
+var analyzers = [getTimesMentioned, getTimesSpoken, getWordsSpoken];
 
 var contestants = fs.readFileSync("contestants.json").toString();
 contestants = JSON.parse(contestants);
 
-fs.readdir('data', function(error, items) {
-    for (i in items) {
-        fs.readFile('data/' + items[i], 'utf-8', function(error, data) {
-			for (i in contestants) {
-				var name = getFirstName(contestants[i]["name"]);
-				var stats = [];
-				for (j in methods) {
-					var method = methods[j];
-					var result = method.call(null, data, name);
-					stats.push(result);
-				}
-				var ret = name + " ";
-				for (j in stats) {
-					ret += stats[j] + " ";
-				}
-				console.log(ret);
+function getData() {
+	var files = fs.readdirSync("data");
+	var results = [];
+	for (i in files) {
+		var episodeResults = [];
+		var episode = fs.readFileSync('data/' + files[i]).toString();
+		for (j in contestants) {
+			var name = getFirstName(contestants[j]["name"]);
+			var stat = { "name": name };
+			for (k in analyzers) {
+				var analyzer = analyzers[k];
+				var result = analyzer.method.call(null, episode, name);
+				stat[analyzer.name] = result;
 			}
+			episodeResults.push(stat);
+		}
+		results.push({
+			"episode": files[i].replace(".txt", ""),
+			"stats": episodeResults
 		});
-    }
-});
+	}
+	return results;
+}
+
+var data = getData();
+console.log(data[0]);
