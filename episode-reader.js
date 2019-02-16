@@ -1,10 +1,15 @@
 const fs = require("fs");
 
-fs.readdir('data', function(err, items) {
+var contestants;
+
+fs.readdir('contestants.csv', function(error, items) {
+	
+});
+
+fs.readdir('data', function(error, items) {
     for (i in items) {
         fs.readFile('data/' + items[i], 'utf-8', function(readError, data) {
 			console.log(data);
 		});
     }
 });
-
