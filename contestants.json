@@ -1,11 +1,177 @@
 [
 	{
-		name: "Roberto Martinez",
-		age: 28,
-		hometown: "Jacksonville, Florida",
-		job: "Insurance agent"
+		"name": "Roberto Martinez",
+		"age": 28,
+		"hometown": "Jacksonville, Florida",
+		"job": "Insurance agent"
 	},
-	
+
 	{
-	}
+		"name": "Chris Lambton",
+		"age": 33,
+		"hometown": "Dennis, Massachusetts",
+		"job": "Landscaper"
+	},
+
+	{
+		"name": "Frank Neuschaefer",
+		"age": 31,
+		"hometown": "Bartlett, Illinois",
+		"job": "Retail Manager"
+	},
+
+	{
+		"name": "Kirk DeWindt",
+		"age": 27,
+		"hometown": "Green Bay, Wisconsin",
+		"job": "Sales Consultant"
+	},
+
+	{
+		"name": "Ty Brown",
+		"age": 31,
+		"hometown": "Booneville, Mississippi",
+		"job": "Medical Salesr"
+	},
+
+	{
+		"name": "Craig Robinson",
+		"age": 18,
+		"hometown": "Maui, Hawaii",
+		"job": "Surfer"
+	},
+
+	{
+		"name": "Justin Rego",
+		"age": 26,
+		"hometown": "Toronto, Ontario",
+		"job": "Entertainment Wrestler"
+	},
+
+	{
+		"name": "Chris Nordhorn",
+		"age": 29,
+		"hometown": "Winter Park, Florida",
+		"job": "Entrepreneur"
+	},
+
+	{
+		"name": "Kasey Kahl",
+		"age": 27,
+		"hometown": "Fresno, California",
+		"job": "Advertising Account Executive"
+	},
+
+	{
+		"name": "Jesse Beck",
+		"age": 24,
+		"hometown": "Peculiar, Missouri",
+		"job": "General Contractor"
+	},
+
+	{
+		"name": "Jonathan Novack",
+		"age": 30,
+		"hometown": "Boston, Massachusetts",
+		"job": "Weatherman"
+	},
+
+	{
+		"name": "John Crivello",
+		"age": 32,
+		"hometown": "Mukilteo, Washington",
+		"job": "Hotel Business Development"
+	},
+
+	{
+		"name": "Steve Kocsis",
+		"age": 28,
+		"hometown": "Chesterland, Ohio",
+		"job": "Sales Representative"
+	},
+
+	{
+		"name": "Hunter Wagner",
+		"age": 28,
+		"hometown": "Fair Oaks Ranch, Texas",
+		"job": "Internet Account Executive"
+	},
+
+	{
+		"name": "Chris Hasek-Watt",
+		"age": 27,
+		"hometown": "Campbell River, British Columbia",
+		"job": "Real Estate Developer"
+	},
+
+	{
+		"name": "Craig McKinnon",
+		"age": 34,
+		"hometown": "Sarnia, Ontario",
+		"job": "Dental Sales"
+	},
+
+	{
+		"name": "Tyler Vermette",
+		"age": 25,
+		"hometown": "Chelsea, Vermont",
+		"job": "Online Advertising"
+	},
+
+	{
+		"name": "Derek",
+		"age": 28,
+		"hometown": "Warren, Michigan",
+		"job": "Sales Manager"
+	},
+
+	{
+		"name": "Derrick Schuster",
+		"age": 27,
+		"hometown": "Manhattan Beach, California",
+		"job": "Construction Engineer"
+	},
+
+	{
+		"name": "Jason Whitehead",
+		"age": 27,
+		"hometown": "Johnson City, Tennessee",
+		"job": "Construction Consultant"
+	},
+
+	{
+		"name": "Jay Resmini",
+		"age": 29,
+		"hometown": "Barrington, Rhode Island",
+		"job": "Lawyer"
+	},
+
+	{
+		"name": "John Nichols",
+		"age": 27,
+		"hometown": "Wichita, Kansas",
+		"job": "Engineering Software Sales"
+	},
+
+	{
+		"name": "Kyle Higgins",
+		"age": 26,
+		"hometown": "Highlands Ranch, Colorado",
+		"job": "Outdoorsman"
+	},
+
+	{
+		"name": "Phil Kayden",
+		"age": 30,
+		"hometown": "Elmore, Ohio",
+		"job": "Investment Manager"
+	},
+
+	{
+		"name": "Tyler Morrow",
+		"age": 25,
+		"hometown": "Helena, Montana",
+		"job": "Catering Manager"
+	},
+
 ]
