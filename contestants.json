@@ -1,5 +1,4 @@
-[
-	{
+[{
 		"name": "Roberto Martinez",
 		"age": 28,
 		"hometown": "Jacksonville, Florida",
@@ -172,6 +171,5 @@
 		"age": 25,
 		"hometown": "Helena, Montana",
 		"job": "Catering Manager"
-	},
-
+	}
 ]
