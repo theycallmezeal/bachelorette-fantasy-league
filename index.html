@@ -9,9 +9,29 @@
 	</head>
 	<body>
 		<h1>The Bachelorette Fantasy League</h1>
+		<button id="refresh">Refresh</button>
 		<div id="app">
+			<h2>League</h2>
+			<table>
+				<tr v-for="player in fantasyPlayers">
+					<td rowspan="2">{{ player.name }}</td>
+					<td>{{ player.men[0] }}</td>
+					<td>{{ player.men[1] }}</td>
+					<td>{{ player.men[2] }}</td>
+					<td>{{ player.men[3] }}</td>
+					<td>{{ player.men[4] }}</td>
+				</tr>
+				<tr v-for="player in fantasyPlayers">
+					<td>{{ scoreFor(player.men[0]) }}</td>
+					<td>{{ scoreFor(player.men[1]) }}</td>
+					<td>{{ scoreFor(player.men[2]) }}</td>
+					<td>{{ scoreFor(player.men[3]) }}</td>
+					<td>{{ scoreFor(player.men[4]) }}</td>
+				</tr>
+			</table>
+			<h2>Episode performances</h2>
 			<div v-for="entry in bacheloretteData">
-				<h2>{{ entry.episode }}</h2>
+				<h3>{{ entry.episode }}</h3>
 				<table>
 					<tr v-for="stat in stats">
 						<td>{{ stat }}</td>
