@@ -84,14 +84,7 @@ const server = http.createServer((request, result) => {
 		'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
 	});
 	
-	var bacheloretteData = getData();
-	
-	var JSONtoReturn = {
-		"bacheloretteData": bacheloretteData,
-		"contestants": [1, 2, 3]
-	}
-	
-	result.write(JSON.stringify(JSONtoReturn));
+	result.write(JSON.stringify(getData()));
 	result.end();
 });
 
