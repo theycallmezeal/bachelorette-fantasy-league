@@ -10,24 +10,25 @@ function getFirstName(name) {
 }
 
 class Analyzer {
-	constructor(name, method) {
+	constructor(name, multiplier, method) {
 		this.name = name;
+		this.multiplier = multiplier;
 		this.method = method;
 	}
 }
 
-var getTimesMentioned = new Analyzer("timesMentioned", function (data, name) {
+var getTimesMentioned = new Analyzer("timesMentioned", 1, function (data, name) {
 	return countInstances(data.toLowerCase(), name.toLowerCase());
 });
 
-var getTimesSpoken = new Analyzer("timesSpoken", function (data, name) {
+var getTimesSpoken = new Analyzer("timesSpoken", 1, function (data, name) {
 	return countInstances(data.toLowerCase(), name.toLowerCase() + ":");
 });
 
 var isolateSpeakersRegex = /\w*?: .*?(?=(\w*?:)|$)/gmi
 var getSpeakerRegex = /^\w*(?=:)/mi
 
-var getWordsSpoken = new Analyzer("wordsSpoken", function (data, name) {
+var getWordsSpoken = new Analyzer("wordsSpoken", 0.01, function (data, name) {
 	var count = 0;
 	var matches = data.match(isolateSpeakersRegex);
 	for (match in matches) {
@@ -57,12 +58,15 @@ function getData() {
 		var episode = fs.readFileSync('data/' + files[i]).toString();
 		for (j in contestants) {
 			var name = getFirstName(contestants[j]["name"]);
+			var score = 0;
 			var stat = { "name": name };
 			for (k in analyzers) {
 				var analyzer = analyzers[k];
 				var result = analyzer.method.call(null, episode, name);
 				stat[analyzer.name] = result;
+				score += (analyzer.multiplier * result);
 			}
+			stat["score"] = Math.round(score);
 			episodeResults.push(stat);
 		}
 		results.push({
