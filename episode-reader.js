@@ -72,5 +72,4 @@ function getData() {
 	return results;
 }
 
-var data = getData();
-console.log(data[0]);
+console.log(getData());
