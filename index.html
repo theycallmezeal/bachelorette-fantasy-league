@@ -12,22 +12,27 @@
 		<button id="refresh">Refresh</button>
 		<div id="app">
 			<h2>League</h2>
+			<p><input type="text" v-model="playerName" placeholder="Name"> <input type="text" v-model="man1" placeholder="Man"> <input type="text" v-model="man2" placeholder="Man"> <input type="text" v-model="man3" placeholder="Man"> <input type="text" v-model="man4" placeholder="Man"> <input type="text" v-model="man5" placeholder="Man"></p>
+			<button v-on:click="addPlayer(playerName, man1, man2, man3, man4, man5)">Add player</button>
 			<table>
-				<tr v-for="player in fantasyPlayers">
-					<td rowspan="2">{{ player.name }}</td>
-					<td>{{ player.men[0] }}</td>
-					<td>{{ player.men[1] }}</td>
-					<td>{{ player.men[2] }}</td>
-					<td>{{ player.men[3] }}</td>
-					<td>{{ player.men[4] }}</td>
-				</tr>
-				<tr v-for="player in fantasyPlayers">
-					<td>{{ scoreFor(player.men[0]) }}</td>
-					<td>{{ scoreFor(player.men[1]) }}</td>
-					<td>{{ scoreFor(player.men[2]) }}</td>
-					<td>{{ scoreFor(player.men[3]) }}</td>
-					<td>{{ scoreFor(player.men[4]) }}</td>
-				</tr>
+				<template v-for="player in fantasyPlayers">
+					<tr>
+						<td rowspan="2">{{ player.name }}</td>
+						<td>{{ player.men[0] }}</td>
+						<td>{{ player.men[1] }}</td>
+						<td>{{ player.men[2] }}</td>
+						<td>{{ player.men[3] }}</td>
+						<td>{{ player.men[4] }}</td>
+						<td rowspan="2">{{ totalScore(player) }}</td>
+					</tr>
+					<tr>
+						<td>{{ scoreFor(player.men[0]) }}</td>
+						<td>{{ scoreFor(player.men[1]) }}</td>
+						<td>{{ scoreFor(player.men[2]) }}</td>
+						<td>{{ scoreFor(player.men[3]) }}</td>
+						<td>{{ scoreFor(player.men[4]) }}</td>
+					</tr>
+				</template>
 			</table>
 			<h2>Episode performances</h2>
 			<div v-for="entry in bacheloretteData">

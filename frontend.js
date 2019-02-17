@@ -36,14 +36,26 @@ var app = new Vue({
 		bacheloretteData: bacheloretteData,
 		fantasyPlayers: [
 			new FantasyPlayer("Krzysztof", ["Roberto", "John", "Kasey", "Craig", "Phil"])
-		]
+		],
+		playerName: "",
+		man1: "",
+		man2: "",
+		man3: "",
+		man4: "",
+		man5: ""
 	},
 	
 	methods: {
-		addPlayer: function (name, men) {
-			if (name != "") {
-				fantasyPlayers.append(new FantasyPlayer(name, men));
+		addPlayer: function (name, man1, man2, man3, man4, man5) {
+			if (name != "" && man1 != "" && man2 != "" && man3 != "" && man4 != "" && man5 != "") {
+				this.fantasyPlayers.push(new FantasyPlayer(name, [man1, man2, man3, man4, man5]));
 			}
+			name = "";
+			man1 = "";
+			man2 = "";
+			man3 = "";
+			man4 = "";
+			man5 = "";
 		},
 		
 		scoreFor: function (man) {
@@ -57,6 +69,10 @@ var app = new Vue({
 				}
 			}
 			return score;
+		},
+		
+		totalScore: function (player) {
+			return this.scoreFor(player.men[0]) + this.scoreFor(player.men[1]) + this.scoreFor(player.men[2]) + this.scoreFor(player.men[3]) + this.scoreFor(player.men[4]);
 		}
 	},
 	
