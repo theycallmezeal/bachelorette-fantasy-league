@@ -34,9 +34,7 @@ var app = new Vue({
 	el: "#app",
 	data: {
 		bacheloretteData: bacheloretteData,
-		fantasyPlayers: [
-			new FantasyPlayer("Krzysztof", ["Roberto", "John", "Kasey", "Craig", "Phil"])
-		],
+		fantasyPlayers: [],
 		playerName: "",
 		man1: "",
 		man2: "",
@@ -50,12 +48,12 @@ var app = new Vue({
 			if (name != "" && man1 != "" && man2 != "" && man3 != "" && man4 != "" && man5 != "") {
 				this.fantasyPlayers.push(new FantasyPlayer(name, [man1, man2, man3, man4, man5]));
 			}
-			name = "";
-			man1 = "";
-			man2 = "";
-			man3 = "";
-			man4 = "";
-			man5 = "";
+			this.playerName = "";
+			this.man1 = "";
+			this.man2 = "";
+			this.man3 = "";
+			this.man4 = "";
+			this.man5 = "";
 		},
 		
 		scoreFor: function (man) {

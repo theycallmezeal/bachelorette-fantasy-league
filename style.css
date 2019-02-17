@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+body {
+	font-family: Source Sans Pro, sans-serif;
+	color: white;
+	background-color: black;
+	margin-left: 10px;
+	
+	background-image: url("rose.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+input, button {
+	font-family: inherit;
+}
+
+button {
+	background-color: #ff0c55;
+	color: white;
+	border: none;
+	font-size: 120%;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+table {
+	width: 100%;
+}
+
+#league {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-top: solid 1px #ff0c55;
+	border-bottom: solid 1px #ff0c55;
+}
+
+#league tr {
+	border-bottom: solid 1px white;
+}
+
+#league td {
+	padding: 5px;
+}
+
+#league td[rowspan="2"] {
+	font-weight: bold;
+	color: #ff0c55;
+}
