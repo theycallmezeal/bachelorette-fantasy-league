@@ -4,8 +4,21 @@
 		<title>The Bachelorette Fantasy League</title>
 		<meta charset="utf/8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1">
+		<script src="https://unpkg.com/vue" defer></script>
+		<script src="frontend.js" defer></script>
 	</head>
 	<body>
 		<h1>The Bachelorette Fantasy League</h1>
+		<div id="app">
+			<div v-for="entry in bacheloretteData">
+				<h2>{{ entry.episode }}</h2>
+				<table>
+					<tr v-for="stat in stats">
+						<td>{{ stat }}</td>
+						<td v-for="contestant in entry.stats">{{ contestant[stat] }}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</body>
 </html>

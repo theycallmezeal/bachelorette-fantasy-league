@@ -1,4 +1,5 @@
 const fs = require("fs");
+const http = require('http');
 
 function countInstances(string, substring) {
 	return string.split(substring).length - 1;
@@ -72,4 +73,28 @@ function getData() {
 	return results;
 }
 
-console.log(getData());
+const hostname = '';
+const port = 1693;
+
+const server = http.createServer((request, result) => {
+	result.statusCode = 200;
+	result.writeHead(200, {
+		'Content-Type': 'text/plain',
+		'Access-Control-Allow-Origin' : '*',
+		'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+	});
+	
+	var bacheloretteData = getData();
+	
+	var JSONtoReturn = {
+		"bacheloretteData": bacheloretteData,
+		"contestants": [1, 2, 3]
+	}
+	
+	result.write(JSON.stringify(JSONtoReturn));
+	result.end();
+});
+
+server.listen(port, hostname, () => {
+	console.log('Server running on port ' + port);
+});
